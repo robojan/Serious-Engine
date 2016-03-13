@@ -241,7 +241,7 @@ enum ESStatus
 /* Determine whether or not our target ES file is indeed valid input. */
 ESStatus GetESStatus()
 {
-    ESStatus result = ESStatus::Empty;
+    ESStatus result = Empty;
 
     // Read a temporary buffer of the entire file contents
     fseek(_fInput, 0, SEEK_END);
@@ -254,7 +254,7 @@ ESStatus GetESStatus()
     char* temporaryBuffer = (char*)malloc(length);
 
     if (!temporaryBuffer)
-        return ESStatus::Error;
+        return Error;
 
     fseek(_fInput, 0, SEEK_SET);
     fread(temporaryBuffer, length, 1, _fInput);
@@ -317,11 +317,11 @@ ESStatus GetESStatus()
             for (size_t checkIteration = 0; checkIteration < sequenceLength; checkIteration++)
                 if (currentSequence[checkIteration] != '\n' && currentSequence[checkIteration] != 0x20 && !isdigit(currentSequence[checkIteration]))
                 {
-                    result = ESStatus::Error;
+                    result = Error;
                     break;
                 }
                 else if (currentSequence[checkIteration] != '\n' && currentSequence[checkIteration] != 0x20)
-                    result = ESStatus::Good;
+                    result = Good;
 
             free(temporaryBuffer);
             return result;
@@ -394,12 +394,12 @@ int main(int argc, char *argv[])
 
   switch (status)
   {
-      case ESStatus::Empty:
+      case Empty:
       {
           fclose(_fInput);
           return EXIT_SUCCESS;
       }
-      case ESStatus::Error:
+      case Error:
       {
           fclose(_fInput);
           printf("Ecc encountered an error during the es verification.\n");

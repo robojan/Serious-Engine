@@ -16,7 +16,7 @@ OUTDIR = Release
 DEPLOYBINDIR = $(DEPLOYDIR)
 endif
 
-all: $(DEPLOYDIR)/$(OUTDIR)/$(TARGET)
+all: $(DEPLOYBINDIR)/$(TARGET) $(OUTDIR)
 
 $(DEPLOYBINDIR)/$(TARGET): $(OUTDIR)/$(TARGET)
 	echo Copying $(NAME) binaries to $(DEPLOYBINDIR)
