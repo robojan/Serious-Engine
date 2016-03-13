@@ -28,3 +28,9 @@
 *.app
 !Bison.exe
 !Flex.exe
+
+**/Debug/
+**/Release/
+Bin/*
+!Bin/empty
+

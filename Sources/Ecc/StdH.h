@@ -20,6 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <malloc.h>
 #include <stdarg.h>
 #include <math.h>
+#include <errno.h>
 
 #ifdef PLATFORM_UNIX
 #include <errno.h>
